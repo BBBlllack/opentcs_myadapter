@@ -6,6 +6,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.util.Modules;
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,13 +48,20 @@ public class RunKernel {
    */
   public static void main(String[] args)
       throws Exception {
+    LOG.info("Starting kernel");
     Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger(false));
 
     Environment.logSystemInfo();
 
     LOG.debug("Setting up openTCS kernel {}...", Environment.getBaselineVersion());
-    Injector injector = Guice.createInjector(customConfigurationModule());
-    injector.getInstance(KernelStarter.class).startKernel();
+
+    try {
+      Injector injector = Guice.createInjector(customConfigurationModule());
+      injector.getInstance(KernelStarter.class).startKernel();
+    }
+    catch (IOException e) {
+      LOG.error("Error starting kernel", e);
+    }
   }
 
   /**

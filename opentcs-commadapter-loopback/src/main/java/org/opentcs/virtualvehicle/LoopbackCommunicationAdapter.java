@@ -287,7 +287,9 @@ public class LoopbackCommunicationAdapter
       @Nonnull
       VehicleCommAdapterMessage message
   ) {
+    LOG.info("Loopback processMessage: {}", message.getType());
     switch (message.getType()) {
+
       case INIT_POSITION -> handleInitPosition(message);
       case CURRENT_MOVEMENT_COMMAND_FAILED -> handleCurrentMovementCommandFailed(message);
       case PUBLISH_EVENT -> handlePublishEvent(message);

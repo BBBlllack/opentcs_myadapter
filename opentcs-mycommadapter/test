@@ -1,0 +1,27 @@
+[20250409-16:27:51-720] INFO    kernelExecutor       o.opentcs.MyCommAdapter.sendCommand()
+           : MovementCommand:
+            MovementCommand
+            {step=Point-0003, operation=NOP, opLocation=null, finalMovement=false,
+            finalDestination=Point{name=Point-0004, pose=Pose{position=Triple{x=25000, y=3000, z=0},
+             orientationAngle=NaN}, type=PARK_POSITION,
+             incomingPaths=[TCSObjectReference{referentClass=class org.opentcs.data.model.Path,
+             name=Point-0002 --- Point-0004}, TCSObjectReference{referentClass=class org.opentcs.data.model.Path,
+             name=Point-0003 --- Point-0004}], outgoingPaths=[TCSObjectReference{referentClass=class
+             org.opentcs.data.model.Path, name=Point-0004 --- Point-0006}, TCSObjectReference{referentClass=class org.opentcs.data.model.Path, name=Point-0004 --- Point-0008}],
+             attachedLinks=[org.opentcs.data.model.Location$Link@d0a1ffba], occupyingVehicle=null, vehicleEnvelopes={},
+              maxVehicleBoundingBox=BoundingBox{length=1000, width=1000, height=1000, referenceOffset=Couple{x=0, y=0}},
+               layout=org.opentcs.data.model.Point$Layout@1ea644f5, properties={tcs:parkingPositionPriority=3},
+                history=ObjectHistory{entries=[]}}, finalOperation=MOVE, finalDestinationLocation=null,
+                driveOrder=Route{steps=[Point-0003, Point-0004], costs=9965} -> Point-0004:MOVE,
+                transportOrder=TransportOrder{name=Move-01JRCTKAET3Z0QG5V18PF3T128, wrappingSequence=null,
+                type=-, state=BEING_PROCESSED, intendedVehicle=TCSObjectReference{referentClass=class org.opentcs.data.model.Vehicle,
+                name=Vehicle-01}, processingVehicle=TCSObjectReference{referentClass=class org.opentcs.data.model.Vehicle,
+                 name=Vehicle-01}, creationTime=2025-04-09T08:27:51.643874400Z, deadline=2025-04-09T08:27:51.639877700Z,
+                  finishedTime=+1000000000-12-31T23:59:59.999999999Z, dispensable=false, peripheralReservationToken=null,
+                  dependencies=[], driveOrders=[Route{steps=[Point-0003, Point-0004], costs=9965} -> Point-0004:MOVE],
+                   currentDriveOrderIndex=0, currentRouteStepIndex=-1, properties={},
+                   history=ObjectHistory{entries=[Entry{timestamp=2025-04-09T08:27:51.643874400Z,
+                    eventCode=tcs:history:orderCreated, supplement=}, Entry{timestamp=2025-04-09T08:27:51.693125800Z,
+                    eventCode=tcs:history:orderAssignedToVehicle, supplement=Vehicle-01},
+                    Entry{timestamp=2025-04-09T08:27:51.698126300Z, eventCode=tcs:history:orderProcVehicleChanged,
+                     supplement=Vehicle-01}]}}, properties={}}

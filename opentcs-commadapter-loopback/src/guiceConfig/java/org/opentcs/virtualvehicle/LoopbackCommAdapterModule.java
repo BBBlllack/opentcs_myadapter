@@ -38,6 +38,8 @@ public class LoopbackCommAdapterModule
       return;
     }
 
+    LOG.info("Loopback driver enabled.");
+
     bind(VirtualVehicleConfiguration.class)
         .toInstance(configuration);
 

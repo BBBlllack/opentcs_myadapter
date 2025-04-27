@@ -22,3 +22,5 @@ include 'opentcs-plantoverview-panel-loadgenerator'
 include 'opentcs-plantoverview-panel-resourceallocation'
 include 'opentcs-plantoverview-themes-default'
 include 'opentcs-documentation'
+include 'opentcs-mycommadapter'
+

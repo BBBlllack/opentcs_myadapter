@@ -228,6 +228,7 @@ public class LoopbackCommAdapterPanel
   }
 
   private void updatePosition(String vehiclePosition) {
+    LOG.info("loopback updatePosition: {}", vehiclePosition);
     SwingUtilities.invokeLater(() -> {
       if (vehiclePosition == null) {
         positionTxt.setText("");

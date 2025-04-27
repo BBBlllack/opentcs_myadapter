@@ -44,9 +44,14 @@ public class RunKernelControlCenter {
     Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionLogger(false));
 
     Environment.logSystemInfo();
+    try {
+      Injector injector = Guice.createInjector(customConfigurationModule());
+      injector.getInstance(KernelControlCenterApplication.class).initialize();
+    }
+    catch (Exception e) {
+        LOG.error(e.getMessage(), e);
+    }
 
-    Injector injector = Guice.createInjector(customConfigurationModule());
-    injector.getInstance(KernelControlCenterApplication.class).initialize();
   }
 
   /**

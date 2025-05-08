@@ -1,6 +1,12 @@
 // SPDX-FileCopyrightText: The openTCS Authors
 // SPDX-License-Identifier: CC-BY-4.0
 
+# 基于OPENTCS的通信适配模块 - 毕设系统
+
+> opentcs-mycommadapter 为主要工作
+
+> 配合仓库[opentcs_python_client](https://github.com/BBBlllack/opentcs_python_client)使用
+
 = openTCS
 
 image:https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg[Contributor Covenant,link=CODE_OF_CONDUCT.md]

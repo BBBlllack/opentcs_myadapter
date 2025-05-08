@@ -6,6 +6,7 @@ import static java.util.Objects.requireNonNull;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import org.opentcs.data.model.Location;
@@ -528,6 +529,25 @@ public class MovementCommand {
         + ", transportOrder=" + getTransportOrder()
         + ", properties=" + getProperties()
         + '}';
+  }
+
+  /**
+   * 序列化为json时数据过长, 先转为一个简单的map再序列化
+   * @return
+   */
+  public Map<String, String> asJsonMap(){
+    HashMap<String, String> jsonMap = new HashMap<>();
+    jsonMap.put("step", String.valueOf(getStep()));
+    jsonMap.put("operation", String.valueOf(getOperation()));
+    jsonMap.put("opLocation", String.valueOf(getOpLocation()));
+    jsonMap.put("finalMovement", String.valueOf(isFinalMovement()));
+    jsonMap.put("finalDestination", String.valueOf(getFinalDestination()));
+    jsonMap.put("finalOperation", String.valueOf(getFinalOperation()));
+    jsonMap.put("finalDestinationLocation", String.valueOf(getFinalDestinationLocation()));
+    jsonMap.put("driveOrder", String.valueOf(getDriveOrder()));
+    jsonMap.put("transportOrder", String.valueOf(getTransportOrder()));
+    jsonMap.put("properties", String.valueOf(getProperties()));
+    return jsonMap;
   }
 
   /**

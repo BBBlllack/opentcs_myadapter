@@ -1,8 +1,11 @@
 package org.opentcs.smTest;
 
+import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.crypto.SmUtil;
 import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.symmetric.SM4;
+import java.util.Arrays;
+import java.util.Collections;
 import org.junit.jupiter.api.Test;
 import cn.hutool.crypto.asymmetric.SM2;
 import cn.hutool.crypto.KeyUtil;
@@ -17,10 +20,11 @@ public class SM4Test {
     byte[] key = "0123456789abcdef".getBytes(); // 16字节密钥
     SM4 sm4 = SmUtil.sm4(key);
 
-    String content = "Hello, SM4!";
+    String content = "HelloWorld123456";
 //    String encryptHex = sm4.encryptHex(content);
     String encryptHex = sm4.encryptBase64(content);
-    System.out.println("加密：" + encryptHex);
+//    byte[] encryptHex = sm4.encrypt(content);
+    System.out.println("加密：" + ArrayUtil.toString(encryptHex));
 
 //    String decryptStr = sm4.decryptStr(encryptHex);
     String decryptStr = sm4.decryptStr(encryptHex);
@@ -52,5 +56,10 @@ public class SM4Test {
 //    boolean verify = sm2.verifyHex(text, sign);
 //    System.out.println("Verify: " + verify);
 
+  }
+
+  @Test
+  void test03() {
+    System.out.println(System.currentTimeMillis());
   }
 }

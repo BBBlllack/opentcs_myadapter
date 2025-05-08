@@ -1,0 +1,2139 @@
+{
+  "instruction": {
+    "transportOrder": {
+      "reference": {
+        "referentClass": "org.opentcs.data.order.TransportOrder",
+        "name": "Move-01JTQY649NPRR0889F9NS62K2X"
+      },
+      "properties": {},
+      "name": "Move-01JTQY649NPRR0889F9NS62K2X",
+      "history": {
+        "entries": [
+          {
+            "timestamp": 1746707616.053188300,
+            "eventCode": "tcs:history:orderCreated",
+            "supplement": ""
+          },
+          {
+            "timestamp": 1746707616.063069300,
+            "eventCode": "tcs:history:orderAssignedToVehicle",
+            "supplement": "Vehicle-01"
+          },
+          {
+            "timestamp": 1746707616.064069900,
+            "eventCode": "tcs:history:orderProcVehicleChanged",
+            "supplement": "Vehicle-01"
+          }
+        ]
+      },
+      "type": "-",
+      "dependencies": [],
+      "peripheralReservationToken": null,
+      "currentDriveOrderIndex": 0,
+      "currentRouteStepIndex": -1,
+      "state": "BEING_PROCESSED",
+      "creationTime": 1746707616.053188300,
+      "deadline": 1746707616.052282100,
+      "finishedTime": 31556889864403199.999999999,
+      "intendedVehicle": {
+        "referentClass": "org.opentcs.data.model.Vehicle",
+        "name": "Vehicle-01"
+      },
+      "processingVehicle": {
+        "referentClass": "org.opentcs.data.model.Vehicle",
+        "name": "Vehicle-01"
+      },
+      "wrappingSequence": null,
+      "dispensable": false,
+      "futureDriveOrders": [],
+      "currentDriveOrder": {
+        "destination": {
+          "destination": {
+            "referentClass": "org.opentcs.data.model.Point",
+            "name": "Point-0006"
+          },
+          "operation": "MOVE",
+          "properties": {}
+        },
+        "transportOrder": {
+          "referentClass": "org.opentcs.data.order.TransportOrder",
+          "name": "Move-01JTQY649NPRR0889F9NS62K2X"
+        },
+        "route": {
+          "steps": [
+            {
+              "path": {
+                "reference": {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0001 --- Point-0003"
+                },
+                "properties": {},
+                "name": "Point-0001 --- Point-0003",
+                "history": {
+                  "entries": []
+                },
+                "sourcePoint": {
+                  "referentClass": "org.opentcs.data.model.Point",
+                  "name": "Point-0001"
+                },
+                "destinationPoint": {
+                  "referentClass": "org.opentcs.data.model.Point",
+                  "name": "Point-0003"
+                },
+                "length": 5629,
+                "maxVelocity": 1000,
+                "maxReverseVelocity": 0,
+                "peripheralOperations": [],
+                "locked": false,
+                "vehicleEnvelopes": {},
+                "layout": {
+                  "connectionType": "DIRECT",
+                  "controlPoints": [],
+                  "layerId": 0
+                },
+                "navigableForward": true,
+                "navigableReverse": false
+              },
+              "sourcePoint": {
+                "reference": {
+                  "referentClass": "org.opentcs.data.model.Point",
+                  "name": "Point-0001"
+                },
+                "properties": {},
+                "name": "Point-0001",
+                "history": {
+                  "entries": []
+                },
+                "pose": {
+                  "position": {
+                    "x": 31000,
+                    "y": 11000,
+                    "z": 0
+                  },
+                  "orientationAngle": "NaN"
+                },
+                "type": "HALT_POSITION",
+                "incomingPaths": [
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0033 --- Point-0001"
+                  }
+                ],
+                "outgoingPaths": [
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0001 --- Point-0002"
+                  },
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0001 --- Point-0003"
+                  }
+                ],
+                "attachedLinks": [],
+                "occupyingVehicle": {
+                  "referentClass": "org.opentcs.data.model.Vehicle",
+                  "name": "Vehicle-01"
+                },
+                "vehicleEnvelopes": {},
+                "maxVehicleBoundingBox": {
+                  "length": 1000,
+                  "width": 1000,
+                  "height": 1000,
+                  "referenceOffset": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "layout": {
+                  "position": {
+                    "x": 31000,
+                    "y": 11000
+                  },
+                  "labelOffset": {
+                    "x": -10,
+                    "y": -20
+                  },
+                  "layerId": 0
+                },
+                "parkingPosition": false,
+                "haltingPosition": true
+              },
+              "destinationPoint": {
+                "reference": {
+                  "referentClass": "org.opentcs.data.model.Point",
+                  "name": "Point-0003"
+                },
+                "properties": {},
+                "name": "Point-0003",
+                "history": {
+                  "entries": []
+                },
+                "pose": {
+                  "position": {
+                    "x": 31000,
+                    "y": 5000,
+                    "z": 0
+                  },
+                  "orientationAngle": "NaN"
+                },
+                "type": "HALT_POSITION",
+                "incomingPaths": [
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0001 --- Point-0003"
+                  }
+                ],
+                "outgoingPaths": [
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0003 --- Point-0005"
+                  },
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0003 --- Point-0004"
+                  }
+                ],
+                "attachedLinks": [],
+                "occupyingVehicle": null,
+                "vehicleEnvelopes": {},
+                "maxVehicleBoundingBox": {
+                  "length": 1000,
+                  "width": 1000,
+                  "height": 1000,
+                  "referenceOffset": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "layout": {
+                  "position": {
+                    "x": 31000,
+                    "y": 5000
+                  },
+                  "labelOffset": {
+                    "x": -10,
+                    "y": -20
+                  },
+                  "layerId": 0
+                },
+                "parkingPosition": false,
+                "haltingPosition": true
+              },
+              "vehicleOrientation": "FORWARD",
+              "routeIndex": 0,
+              "costs": 5629,
+              "executionAllowed": true,
+              "reroutingType": null
+            },
+            {
+              "path": {
+                "reference": {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0003 --- Point-0005"
+                },
+                "properties": {},
+                "name": "Point-0003 --- Point-0005",
+                "history": {
+                  "entries": []
+                },
+                "sourcePoint": {
+                  "referentClass": "org.opentcs.data.model.Point",
+                  "name": "Point-0003"
+                },
+                "destinationPoint": {
+                  "referentClass": "org.opentcs.data.model.Point",
+                  "name": "Point-0005"
+                },
+                "length": 5629,
+                "maxVelocity": 1000,
+                "maxReverseVelocity": 0,
+                "peripheralOperations": [],
+                "locked": false,
+                "vehicleEnvelopes": {},
+                "layout": {
+                  "connectionType": "DIRECT",
+                  "controlPoints": [],
+                  "layerId": 0
+                },
+                "navigableForward": true,
+                "navigableReverse": false
+              },
+              "sourcePoint": {
+                "reference": {
+                  "referentClass": "org.opentcs.data.model.Point",
+                  "name": "Point-0003"
+                },
+                "properties": {},
+                "name": "Point-0003",
+                "history": {
+                  "entries": []
+                },
+                "pose": {
+                  "position": {
+                    "x": 31000,
+                    "y": 5000,
+                    "z": 0
+                  },
+                  "orientationAngle": "NaN"
+                },
+                "type": "HALT_POSITION",
+                "incomingPaths": [
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0001 --- Point-0003"
+                  }
+                ],
+                "outgoingPaths": [
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0003 --- Point-0005"
+                  },
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0003 --- Point-0004"
+                  }
+                ],
+                "attachedLinks": [],
+                "occupyingVehicle": null,
+                "vehicleEnvelopes": {},
+                "maxVehicleBoundingBox": {
+                  "length": 1000,
+                  "width": 1000,
+                  "height": 1000,
+                  "referenceOffset": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "layout": {
+                  "position": {
+                    "x": 31000,
+                    "y": 5000
+                  },
+                  "labelOffset": {
+                    "x": -10,
+                    "y": -20
+                  },
+                  "layerId": 0
+                },
+                "parkingPosition": false,
+                "haltingPosition": true
+              },
+              "destinationPoint": {
+                "reference": {
+                  "referentClass": "org.opentcs.data.model.Point",
+                  "name": "Point-0005"
+                },
+                "properties": {},
+                "name": "Point-0005",
+                "history": {
+                  "entries": []
+                },
+                "pose": {
+                  "position": {
+                    "x": 31000,
+                    "y": -1000,
+                    "z": 0
+                  },
+                  "orientationAngle": "NaN"
+                },
+                "type": "HALT_POSITION",
+                "incomingPaths": [
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0003 --- Point-0005"
+                  }
+                ],
+                "outgoingPaths": [
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0005 --- Point-0007"
+                  },
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0005 --- Point-0006"
+                  }
+                ],
+                "attachedLinks": [],
+                "occupyingVehicle": null,
+                "vehicleEnvelopes": {},
+                "maxVehicleBoundingBox": {
+                  "length": 1000,
+                  "width": 1000,
+                  "height": 1000,
+                  "referenceOffset": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "layout": {
+                  "position": {
+                    "x": 31000,
+                    "y": -1000
+                  },
+                  "labelOffset": {
+                    "x": -10,
+                    "y": -20
+                  },
+                  "layerId": 0
+                },
+                "parkingPosition": false,
+                "haltingPosition": true
+              },
+              "vehicleOrientation": "FORWARD",
+              "routeIndex": 1,
+              "costs": 5629,
+              "executionAllowed": true,
+              "reroutingType": null
+            },
+            {
+              "path": {
+                "reference": {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0005 --- Point-0006"
+                },
+                "properties": {},
+                "name": "Point-0005 --- Point-0006",
+                "history": {
+                  "entries": []
+                },
+                "sourcePoint": {
+                  "referentClass": "org.opentcs.data.model.Point",
+                  "name": "Point-0005"
+                },
+                "destinationPoint": {
+                  "referentClass": "org.opentcs.data.model.Point",
+                  "name": "Point-0006"
+                },
+                "length": 4423,
+                "maxVelocity": 1000,
+                "maxReverseVelocity": 0,
+                "peripheralOperations": [],
+                "locked": false,
+                "vehicleEnvelopes": {},
+                "layout": {
+                  "connectionType": "BEZIER",
+                  "controlPoints": [
+                    {
+                      "x": 610,
+                      "y": 60
+                    },
+                    {
+                      "x": 610,
+                      "y": 60
+                    }
+                  ],
+                  "layerId": 0
+                },
+                "navigableForward": true,
+                "navigableReverse": false
+              },
+              "sourcePoint": {
+                "reference": {
+                  "referentClass": "org.opentcs.data.model.Point",
+                  "name": "Point-0005"
+                },
+                "properties": {},
+                "name": "Point-0005",
+                "history": {
+                  "entries": []
+                },
+                "pose": {
+                  "position": {
+                    "x": 31000,
+                    "y": -1000,
+                    "z": 0
+                  },
+                  "orientationAngle": "NaN"
+                },
+                "type": "HALT_POSITION",
+                "incomingPaths": [
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0003 --- Point-0005"
+                  }
+                ],
+                "outgoingPaths": [
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0005 --- Point-0007"
+                  },
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0005 --- Point-0006"
+                  }
+                ],
+                "attachedLinks": [],
+                "occupyingVehicle": null,
+                "vehicleEnvelopes": {},
+                "maxVehicleBoundingBox": {
+                  "length": 1000,
+                  "width": 1000,
+                  "height": 1000,
+                  "referenceOffset": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "layout": {
+                  "position": {
+                    "x": 31000,
+                    "y": -1000
+                  },
+                  "labelOffset": {
+                    "x": -10,
+                    "y": -20
+                  },
+                  "layerId": 0
+                },
+                "parkingPosition": false,
+                "haltingPosition": true
+              },
+              "destinationPoint": {
+                "reference": {
+                  "referentClass": "org.opentcs.data.model.Point",
+                  "name": "Point-0006"
+                },
+                "properties": {
+                  "tcs:parkingPositionPriority": "2"
+                },
+                "name": "Point-0006",
+                "history": {
+                  "entries": []
+                },
+                "pose": {
+                  "position": {
+                    "x": 25000,
+                    "y": -3000,
+                    "z": 0
+                  },
+                  "orientationAngle": "NaN"
+                },
+                "type": "PARK_POSITION",
+                "incomingPaths": [
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0004 --- Point-0006"
+                  },
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0005 --- Point-0006"
+                  }
+                ],
+                "outgoingPaths": [
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0006 --- Point-0010"
+                  },
+                  {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0006 --- Point-0009"
+                  }
+                ],
+                "attachedLinks": [
+                  {
+                    "location": {
+                      "referentClass": "org.opentcs.data.model.Location",
+                      "name": "Recharge 03"
+                    },
+                    "point": {
+                      "referentClass": "org.opentcs.data.model.Point",
+                      "name": "Point-0006"
+                    },
+                    "allowedOperations": []
+                  }
+                ],
+                "occupyingVehicle": null,
+                "vehicleEnvelopes": {},
+                "maxVehicleBoundingBox": {
+                  "length": 1000,
+                  "width": 1000,
+                  "height": 1000,
+                  "referenceOffset": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "layout": {
+                  "position": {
+                    "x": 25000,
+                    "y": -3000
+                  },
+                  "labelOffset": {
+                    "x": -10,
+                    "y": -20
+                  },
+                  "layerId": 0
+                },
+                "parkingPosition": true,
+                "haltingPosition": true
+              },
+              "vehicleOrientation": "FORWARD",
+              "routeIndex": 2,
+              "costs": 4423,
+              "executionAllowed": true,
+              "reroutingType": null
+            }
+          ],
+          "costs": 15681,
+          "finalDestinationPoint": {
+            "reference": {
+              "referentClass": "org.opentcs.data.model.Point",
+              "name": "Point-0006"
+            },
+            "properties": {
+              "tcs:parkingPositionPriority": "2"
+            },
+            "name": "Point-0006",
+            "history": {
+              "entries": []
+            },
+            "pose": {
+              "position": {
+                "x": 25000,
+                "y": -3000,
+                "z": 0
+              },
+              "orientationAngle": "NaN"
+            },
+            "type": "PARK_POSITION",
+            "incomingPaths": [
+              {
+                "referentClass": "org.opentcs.data.model.Path",
+                "name": "Point-0004 --- Point-0006"
+              },
+              {
+                "referentClass": "org.opentcs.data.model.Path",
+                "name": "Point-0005 --- Point-0006"
+              }
+            ],
+            "outgoingPaths": [
+              {
+                "referentClass": "org.opentcs.data.model.Path",
+                "name": "Point-0006 --- Point-0010"
+              },
+              {
+                "referentClass": "org.opentcs.data.model.Path",
+                "name": "Point-0006 --- Point-0009"
+              }
+            ],
+            "attachedLinks": [
+              {
+                "location": {
+                  "referentClass": "org.opentcs.data.model.Location",
+                  "name": "Recharge 03"
+                },
+                "point": {
+                  "referentClass": "org.opentcs.data.model.Point",
+                  "name": "Point-0006"
+                },
+                "allowedOperations": []
+              }
+            ],
+            "occupyingVehicle": null,
+            "vehicleEnvelopes": {},
+            "maxVehicleBoundingBox": {
+              "length": 1000,
+              "width": 1000,
+              "height": 1000,
+              "referenceOffset": {
+                "x": 0,
+                "y": 0
+              }
+            },
+            "layout": {
+              "position": {
+                "x": 25000,
+                "y": -3000
+              },
+              "labelOffset": {
+                "x": -10,
+                "y": -20
+              },
+              "layerId": 0
+            },
+            "parkingPosition": true,
+            "haltingPosition": true
+          }
+        },
+        "state": "TRAVELLING"
+      },
+      "allDriveOrders": [
+        {
+          "destination": {
+            "destination": {
+              "referentClass": "org.opentcs.data.model.Point",
+              "name": "Point-0006"
+            },
+            "operation": "MOVE",
+            "properties": {}
+          },
+          "transportOrder": {
+            "referentClass": "org.opentcs.data.order.TransportOrder",
+            "name": "Move-01JTQY649NPRR0889F9NS62K2X"
+          },
+          "route": {
+            "steps": [
+              {
+                "path": {
+                  "reference": {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0001 --- Point-0003"
+                  },
+                  "properties": {},
+                  "name": "Point-0001 --- Point-0003",
+                  "history": {
+                    "entries": []
+                  },
+                  "sourcePoint": {
+                    "referentClass": "org.opentcs.data.model.Point",
+                    "name": "Point-0001"
+                  },
+                  "destinationPoint": {
+                    "referentClass": "org.opentcs.data.model.Point",
+                    "name": "Point-0003"
+                  },
+                  "length": 5629,
+                  "maxVelocity": 1000,
+                  "maxReverseVelocity": 0,
+                  "peripheralOperations": [],
+                  "locked": false,
+                  "vehicleEnvelopes": {},
+                  "layout": {
+                    "connectionType": "DIRECT",
+                    "controlPoints": [],
+                    "layerId": 0
+                  },
+                  "navigableForward": true,
+                  "navigableReverse": false
+                },
+                "sourcePoint": {
+                  "reference": {
+                    "referentClass": "org.opentcs.data.model.Point",
+                    "name": "Point-0001"
+                  },
+                  "properties": {},
+                  "name": "Point-0001",
+                  "history": {
+                    "entries": []
+                  },
+                  "pose": {
+                    "position": {
+                      "x": 31000,
+                      "y": 11000,
+                      "z": 0
+                    },
+                    "orientationAngle": "NaN"
+                  },
+                  "type": "HALT_POSITION",
+                  "incomingPaths": [
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0033 --- Point-0001"
+                    }
+                  ],
+                  "outgoingPaths": [
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0001 --- Point-0002"
+                    },
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0001 --- Point-0003"
+                    }
+                  ],
+                  "attachedLinks": [],
+                  "occupyingVehicle": {
+                    "referentClass": "org.opentcs.data.model.Vehicle",
+                    "name": "Vehicle-01"
+                  },
+                  "vehicleEnvelopes": {},
+                  "maxVehicleBoundingBox": {
+                    "length": 1000,
+                    "width": 1000,
+                    "height": 1000,
+                    "referenceOffset": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "layout": {
+                    "position": {
+                      "x": 31000,
+                      "y": 11000
+                    },
+                    "labelOffset": {
+                      "x": -10,
+                      "y": -20
+                    },
+                    "layerId": 0
+                  },
+                  "parkingPosition": false,
+                  "haltingPosition": true
+                },
+                "destinationPoint": {
+                  "reference": {
+                    "referentClass": "org.opentcs.data.model.Point",
+                    "name": "Point-0003"
+                  },
+                  "properties": {},
+                  "name": "Point-0003",
+                  "history": {
+                    "entries": []
+                  },
+                  "pose": {
+                    "position": {
+                      "x": 31000,
+                      "y": 5000,
+                      "z": 0
+                    },
+                    "orientationAngle": "NaN"
+                  },
+                  "type": "HALT_POSITION",
+                  "incomingPaths": [
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0001 --- Point-0003"
+                    }
+                  ],
+                  "outgoingPaths": [
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0003 --- Point-0005"
+                    },
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0003 --- Point-0004"
+                    }
+                  ],
+                  "attachedLinks": [],
+                  "occupyingVehicle": null,
+                  "vehicleEnvelopes": {},
+                  "maxVehicleBoundingBox": {
+                    "length": 1000,
+                    "width": 1000,
+                    "height": 1000,
+                    "referenceOffset": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "layout": {
+                    "position": {
+                      "x": 31000,
+                      "y": 5000
+                    },
+                    "labelOffset": {
+                      "x": -10,
+                      "y": -20
+                    },
+                    "layerId": 0
+                  },
+                  "parkingPosition": false,
+                  "haltingPosition": true
+                },
+                "vehicleOrientation": "FORWARD",
+                "routeIndex": 0,
+                "costs": 5629,
+                "executionAllowed": true,
+                "reroutingType": null
+              },
+              {
+                "path": {
+                  "reference": {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0003 --- Point-0005"
+                  },
+                  "properties": {},
+                  "name": "Point-0003 --- Point-0005",
+                  "history": {
+                    "entries": []
+                  },
+                  "sourcePoint": {
+                    "referentClass": "org.opentcs.data.model.Point",
+                    "name": "Point-0003"
+                  },
+                  "destinationPoint": {
+                    "referentClass": "org.opentcs.data.model.Point",
+                    "name": "Point-0005"
+                  },
+                  "length": 5629,
+                  "maxVelocity": 1000,
+                  "maxReverseVelocity": 0,
+                  "peripheralOperations": [],
+                  "locked": false,
+                  "vehicleEnvelopes": {},
+                  "layout": {
+                    "connectionType": "DIRECT",
+                    "controlPoints": [],
+                    "layerId": 0
+                  },
+                  "navigableForward": true,
+                  "navigableReverse": false
+                },
+                "sourcePoint": {
+                  "reference": {
+                    "referentClass": "org.opentcs.data.model.Point",
+                    "name": "Point-0003"
+                  },
+                  "properties": {},
+                  "name": "Point-0003",
+                  "history": {
+                    "entries": []
+                  },
+                  "pose": {
+                    "position": {
+                      "x": 31000,
+                      "y": 5000,
+                      "z": 0
+                    },
+                    "orientationAngle": "NaN"
+                  },
+                  "type": "HALT_POSITION",
+                  "incomingPaths": [
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0001 --- Point-0003"
+                    }
+                  ],
+                  "outgoingPaths": [
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0003 --- Point-0005"
+                    },
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0003 --- Point-0004"
+                    }
+                  ],
+                  "attachedLinks": [],
+                  "occupyingVehicle": null,
+                  "vehicleEnvelopes": {},
+                  "maxVehicleBoundingBox": {
+                    "length": 1000,
+                    "width": 1000,
+                    "height": 1000,
+                    "referenceOffset": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "layout": {
+                    "position": {
+                      "x": 31000,
+                      "y": 5000
+                    },
+                    "labelOffset": {
+                      "x": -10,
+                      "y": -20
+                    },
+                    "layerId": 0
+                  },
+                  "parkingPosition": false,
+                  "haltingPosition": true
+                },
+                "destinationPoint": {
+                  "reference": {
+                    "referentClass": "org.opentcs.data.model.Point",
+                    "name": "Point-0005"
+                  },
+                  "properties": {},
+                  "name": "Point-0005",
+                  "history": {
+                    "entries": []
+                  },
+                  "pose": {
+                    "position": {
+                      "x": 31000,
+                      "y": -1000,
+                      "z": 0
+                    },
+                    "orientationAngle": "NaN"
+                  },
+                  "type": "HALT_POSITION",
+                  "incomingPaths": [
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0003 --- Point-0005"
+                    }
+                  ],
+                  "outgoingPaths": [
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0005 --- Point-0007"
+                    },
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0005 --- Point-0006"
+                    }
+                  ],
+                  "attachedLinks": [],
+                  "occupyingVehicle": null,
+                  "vehicleEnvelopes": {},
+                  "maxVehicleBoundingBox": {
+                    "length": 1000,
+                    "width": 1000,
+                    "height": 1000,
+                    "referenceOffset": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "layout": {
+                    "position": {
+                      "x": 31000,
+                      "y": -1000
+                    },
+                    "labelOffset": {
+                      "x": -10,
+                      "y": -20
+                    },
+                    "layerId": 0
+                  },
+                  "parkingPosition": false,
+                  "haltingPosition": true
+                },
+                "vehicleOrientation": "FORWARD",
+                "routeIndex": 1,
+                "costs": 5629,
+                "executionAllowed": true,
+                "reroutingType": null
+              },
+              {
+                "path": {
+                  "reference": {
+                    "referentClass": "org.opentcs.data.model.Path",
+                    "name": "Point-0005 --- Point-0006"
+                  },
+                  "properties": {},
+                  "name": "Point-0005 --- Point-0006",
+                  "history": {
+                    "entries": []
+                  },
+                  "sourcePoint": {
+                    "referentClass": "org.opentcs.data.model.Point",
+                    "name": "Point-0005"
+                  },
+                  "destinationPoint": {
+                    "referentClass": "org.opentcs.data.model.Point",
+                    "name": "Point-0006"
+                  },
+                  "length": 4423,
+                  "maxVelocity": 1000,
+                  "maxReverseVelocity": 0,
+                  "peripheralOperations": [],
+                  "locked": false,
+                  "vehicleEnvelopes": {},
+                  "layout": {
+                    "connectionType": "BEZIER",
+                    "controlPoints": [
+                      {
+                        "x": 610,
+                        "y": 60
+                      },
+                      {
+                        "x": 610,
+                        "y": 60
+                      }
+                    ],
+                    "layerId": 0
+                  },
+                  "navigableForward": true,
+                  "navigableReverse": false
+                },
+                "sourcePoint": {
+                  "reference": {
+                    "referentClass": "org.opentcs.data.model.Point",
+                    "name": "Point-0005"
+                  },
+                  "properties": {},
+                  "name": "Point-0005",
+                  "history": {
+                    "entries": []
+                  },
+                  "pose": {
+                    "position": {
+                      "x": 31000,
+                      "y": -1000,
+                      "z": 0
+                    },
+                    "orientationAngle": "NaN"
+                  },
+                  "type": "HALT_POSITION",
+                  "incomingPaths": [
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0003 --- Point-0005"
+                    }
+                  ],
+                  "outgoingPaths": [
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0005 --- Point-0007"
+                    },
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0005 --- Point-0006"
+                    }
+                  ],
+                  "attachedLinks": [],
+                  "occupyingVehicle": null,
+                  "vehicleEnvelopes": {},
+                  "maxVehicleBoundingBox": {
+                    "length": 1000,
+                    "width": 1000,
+                    "height": 1000,
+                    "referenceOffset": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "layout": {
+                    "position": {
+                      "x": 31000,
+                      "y": -1000
+                    },
+                    "labelOffset": {
+                      "x": -10,
+                      "y": -20
+                    },
+                    "layerId": 0
+                  },
+                  "parkingPosition": false,
+                  "haltingPosition": true
+                },
+                "destinationPoint": {
+                  "reference": {
+                    "referentClass": "org.opentcs.data.model.Point",
+                    "name": "Point-0006"
+                  },
+                  "properties": {
+                    "tcs:parkingPositionPriority": "2"
+                  },
+                  "name": "Point-0006",
+                  "history": {
+                    "entries": []
+                  },
+                  "pose": {
+                    "position": {
+                      "x": 25000,
+                      "y": -3000,
+                      "z": 0
+                    },
+                    "orientationAngle": "NaN"
+                  },
+                  "type": "PARK_POSITION",
+                  "incomingPaths": [
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0004 --- Point-0006"
+                    },
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0005 --- Point-0006"
+                    }
+                  ],
+                  "outgoingPaths": [
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0006 --- Point-0010"
+                    },
+                    {
+                      "referentClass": "org.opentcs.data.model.Path",
+                      "name": "Point-0006 --- Point-0009"
+                    }
+                  ],
+                  "attachedLinks": [
+                    {
+                      "location": {
+                        "referentClass": "org.opentcs.data.model.Location",
+                        "name": "Recharge 03"
+                      },
+                      "point": {
+                        "referentClass": "org.opentcs.data.model.Point",
+                        "name": "Point-0006"
+                      },
+                      "allowedOperations": []
+                    }
+                  ],
+                  "occupyingVehicle": null,
+                  "vehicleEnvelopes": {},
+                  "maxVehicleBoundingBox": {
+                    "length": 1000,
+                    "width": 1000,
+                    "height": 1000,
+                    "referenceOffset": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "layout": {
+                    "position": {
+                      "x": 25000,
+                      "y": -3000
+                    },
+                    "labelOffset": {
+                      "x": -10,
+                      "y": -20
+                    },
+                    "layerId": 0
+                  },
+                  "parkingPosition": true,
+                  "haltingPosition": true
+                },
+                "vehicleOrientation": "FORWARD",
+                "routeIndex": 2,
+                "costs": 4423,
+                "executionAllowed": true,
+                "reroutingType": null
+              }
+            ],
+            "costs": 15681,
+            "finalDestinationPoint": {
+              "reference": {
+                "referentClass": "org.opentcs.data.model.Point",
+                "name": "Point-0006"
+              },
+              "properties": {
+                "tcs:parkingPositionPriority": "2"
+              },
+              "name": "Point-0006",
+              "history": {
+                "entries": []
+              },
+              "pose": {
+                "position": {
+                  "x": 25000,
+                  "y": -3000,
+                  "z": 0
+                },
+                "orientationAngle": "NaN"
+              },
+              "type": "PARK_POSITION",
+              "incomingPaths": [
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0004 --- Point-0006"
+                },
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0005 --- Point-0006"
+                }
+              ],
+              "outgoingPaths": [
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0006 --- Point-0010"
+                },
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0006 --- Point-0009"
+                }
+              ],
+              "attachedLinks": [
+                {
+                  "location": {
+                    "referentClass": "org.opentcs.data.model.Location",
+                    "name": "Recharge 03"
+                  },
+                  "point": {
+                    "referentClass": "org.opentcs.data.model.Point",
+                    "name": "Point-0006"
+                  },
+                  "allowedOperations": []
+                }
+              ],
+              "occupyingVehicle": null,
+              "vehicleEnvelopes": {},
+              "maxVehicleBoundingBox": {
+                "length": 1000,
+                "width": 1000,
+                "height": 1000,
+                "referenceOffset": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "layout": {
+                "position": {
+                  "x": 25000,
+                  "y": -3000
+                },
+                "labelOffset": {
+                  "x": -10,
+                  "y": -20
+                },
+                "layerId": 0
+              },
+              "parkingPosition": true,
+              "haltingPosition": true
+            }
+          },
+          "state": "TRAVELLING"
+        }
+      ],
+      "pastDriveOrders": []
+    },
+    "driveOrder": {
+      "destination": {
+        "destination": {
+          "referentClass": "org.opentcs.data.model.Point",
+          "name": "Point-0006"
+        },
+        "operation": "MOVE",
+        "properties": {}
+      },
+      "transportOrder": {
+        "referentClass": "org.opentcs.data.order.TransportOrder",
+        "name": "Move-01JTQY649NPRR0889F9NS62K2X"
+      },
+      "route": {
+        "steps": [
+          {
+            "path": {
+              "reference": {
+                "referentClass": "org.opentcs.data.model.Path",
+                "name": "Point-0001 --- Point-0003"
+              },
+              "properties": {},
+              "name": "Point-0001 --- Point-0003",
+              "history": {
+                "entries": []
+              },
+              "sourcePoint": {
+                "referentClass": "org.opentcs.data.model.Point",
+                "name": "Point-0001"
+              },
+              "destinationPoint": {
+                "referentClass": "org.opentcs.data.model.Point",
+                "name": "Point-0003"
+              },
+              "length": 5629,
+              "maxVelocity": 1000,
+              "maxReverseVelocity": 0,
+              "peripheralOperations": [],
+              "locked": false,
+              "vehicleEnvelopes": {},
+              "layout": {
+                "connectionType": "DIRECT",
+                "controlPoints": [],
+                "layerId": 0
+              },
+              "navigableForward": true,
+              "navigableReverse": false
+            },
+            "sourcePoint": {
+              "reference": {
+                "referentClass": "org.opentcs.data.model.Point",
+                "name": "Point-0001"
+              },
+              "properties": {},
+              "name": "Point-0001",
+              "history": {
+                "entries": []
+              },
+              "pose": {
+                "position": {
+                  "x": 31000,
+                  "y": 11000,
+                  "z": 0
+                },
+                "orientationAngle": "NaN"
+              },
+              "type": "HALT_POSITION",
+              "incomingPaths": [
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0033 --- Point-0001"
+                }
+              ],
+              "outgoingPaths": [
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0001 --- Point-0002"
+                },
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0001 --- Point-0003"
+                }
+              ],
+              "attachedLinks": [],
+              "occupyingVehicle": {
+                "referentClass": "org.opentcs.data.model.Vehicle",
+                "name": "Vehicle-01"
+              },
+              "vehicleEnvelopes": {},
+              "maxVehicleBoundingBox": {
+                "length": 1000,
+                "width": 1000,
+                "height": 1000,
+                "referenceOffset": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "layout": {
+                "position": {
+                  "x": 31000,
+                  "y": 11000
+                },
+                "labelOffset": {
+                  "x": -10,
+                  "y": -20
+                },
+                "layerId": 0
+              },
+              "parkingPosition": false,
+              "haltingPosition": true
+            },
+            "destinationPoint": {
+              "reference": {
+                "referentClass": "org.opentcs.data.model.Point",
+                "name": "Point-0003"
+              },
+              "properties": {},
+              "name": "Point-0003",
+              "history": {
+                "entries": []
+              },
+              "pose": {
+                "position": {
+                  "x": 31000,
+                  "y": 5000,
+                  "z": 0
+                },
+                "orientationAngle": "NaN"
+              },
+              "type": "HALT_POSITION",
+              "incomingPaths": [
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0001 --- Point-0003"
+                }
+              ],
+              "outgoingPaths": [
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0003 --- Point-0005"
+                },
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0003 --- Point-0004"
+                }
+              ],
+              "attachedLinks": [],
+              "occupyingVehicle": null,
+              "vehicleEnvelopes": {},
+              "maxVehicleBoundingBox": {
+                "length": 1000,
+                "width": 1000,
+                "height": 1000,
+                "referenceOffset": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "layout": {
+                "position": {
+                  "x": 31000,
+                  "y": 5000
+                },
+                "labelOffset": {
+                  "x": -10,
+                  "y": -20
+                },
+                "layerId": 0
+              },
+              "parkingPosition": false,
+              "haltingPosition": true
+            },
+            "vehicleOrientation": "FORWARD",
+            "routeIndex": 0,
+            "costs": 5629,
+            "executionAllowed": true,
+            "reroutingType": null
+          },
+          {
+            "path": {
+              "reference": {
+                "referentClass": "org.opentcs.data.model.Path",
+                "name": "Point-0003 --- Point-0005"
+              },
+              "properties": {},
+              "name": "Point-0003 --- Point-0005",
+              "history": {
+                "entries": []
+              },
+              "sourcePoint": {
+                "referentClass": "org.opentcs.data.model.Point",
+                "name": "Point-0003"
+              },
+              "destinationPoint": {
+                "referentClass": "org.opentcs.data.model.Point",
+                "name": "Point-0005"
+              },
+              "length": 5629,
+              "maxVelocity": 1000,
+              "maxReverseVelocity": 0,
+              "peripheralOperations": [],
+              "locked": false,
+              "vehicleEnvelopes": {},
+              "layout": {
+                "connectionType": "DIRECT",
+                "controlPoints": [],
+                "layerId": 0
+              },
+              "navigableForward": true,
+              "navigableReverse": false
+            },
+            "sourcePoint": {
+              "reference": {
+                "referentClass": "org.opentcs.data.model.Point",
+                "name": "Point-0003"
+              },
+              "properties": {},
+              "name": "Point-0003",
+              "history": {
+                "entries": []
+              },
+              "pose": {
+                "position": {
+                  "x": 31000,
+                  "y": 5000,
+                  "z": 0
+                },
+                "orientationAngle": "NaN"
+              },
+              "type": "HALT_POSITION",
+              "incomingPaths": [
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0001 --- Point-0003"
+                }
+              ],
+              "outgoingPaths": [
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0003 --- Point-0005"
+                },
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0003 --- Point-0004"
+                }
+              ],
+              "attachedLinks": [],
+              "occupyingVehicle": null,
+              "vehicleEnvelopes": {},
+              "maxVehicleBoundingBox": {
+                "length": 1000,
+                "width": 1000,
+                "height": 1000,
+                "referenceOffset": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "layout": {
+                "position": {
+                  "x": 31000,
+                  "y": 5000
+                },
+                "labelOffset": {
+                  "x": -10,
+                  "y": -20
+                },
+                "layerId": 0
+              },
+              "parkingPosition": false,
+              "haltingPosition": true
+            },
+            "destinationPoint": {
+              "reference": {
+                "referentClass": "org.opentcs.data.model.Point",
+                "name": "Point-0005"
+              },
+              "properties": {},
+              "name": "Point-0005",
+              "history": {
+                "entries": []
+              },
+              "pose": {
+                "position": {
+                  "x": 31000,
+                  "y": -1000,
+                  "z": 0
+                },
+                "orientationAngle": "NaN"
+              },
+              "type": "HALT_POSITION",
+              "incomingPaths": [
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0003 --- Point-0005"
+                }
+              ],
+              "outgoingPaths": [
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0005 --- Point-0007"
+                },
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0005 --- Point-0006"
+                }
+              ],
+              "attachedLinks": [],
+              "occupyingVehicle": null,
+              "vehicleEnvelopes": {},
+              "maxVehicleBoundingBox": {
+                "length": 1000,
+                "width": 1000,
+                "height": 1000,
+                "referenceOffset": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "layout": {
+                "position": {
+                  "x": 31000,
+                  "y": -1000
+                },
+                "labelOffset": {
+                  "x": -10,
+                  "y": -20
+                },
+                "layerId": 0
+              },
+              "parkingPosition": false,
+              "haltingPosition": true
+            },
+            "vehicleOrientation": "FORWARD",
+            "routeIndex": 1,
+            "costs": 5629,
+            "executionAllowed": true,
+            "reroutingType": null
+          },
+          {
+            "path": {
+              "reference": {
+                "referentClass": "org.opentcs.data.model.Path",
+                "name": "Point-0005 --- Point-0006"
+              },
+              "properties": {},
+              "name": "Point-0005 --- Point-0006",
+              "history": {
+                "entries": []
+              },
+              "sourcePoint": {
+                "referentClass": "org.opentcs.data.model.Point",
+                "name": "Point-0005"
+              },
+              "destinationPoint": {
+                "referentClass": "org.opentcs.data.model.Point",
+                "name": "Point-0006"
+              },
+              "length": 4423,
+              "maxVelocity": 1000,
+              "maxReverseVelocity": 0,
+              "peripheralOperations": [],
+              "locked": false,
+              "vehicleEnvelopes": {},
+              "layout": {
+                "connectionType": "BEZIER",
+                "controlPoints": [
+                  {
+                    "x": 610,
+                    "y": 60
+                  },
+                  {
+                    "x": 610,
+                    "y": 60
+                  }
+                ],
+                "layerId": 0
+              },
+              "navigableForward": true,
+              "navigableReverse": false
+            },
+            "sourcePoint": {
+              "reference": {
+                "referentClass": "org.opentcs.data.model.Point",
+                "name": "Point-0005"
+              },
+              "properties": {},
+              "name": "Point-0005",
+              "history": {
+                "entries": []
+              },
+              "pose": {
+                "position": {
+                  "x": 31000,
+                  "y": -1000,
+                  "z": 0
+                },
+                "orientationAngle": "NaN"
+              },
+              "type": "HALT_POSITION",
+              "incomingPaths": [
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0003 --- Point-0005"
+                }
+              ],
+              "outgoingPaths": [
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0005 --- Point-0007"
+                },
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0005 --- Point-0006"
+                }
+              ],
+              "attachedLinks": [],
+              "occupyingVehicle": null,
+              "vehicleEnvelopes": {},
+              "maxVehicleBoundingBox": {
+                "length": 1000,
+                "width": 1000,
+                "height": 1000,
+                "referenceOffset": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "layout": {
+                "position": {
+                  "x": 31000,
+                  "y": -1000
+                },
+                "labelOffset": {
+                  "x": -10,
+                  "y": -20
+                },
+                "layerId": 0
+              },
+              "parkingPosition": false,
+              "haltingPosition": true
+            },
+            "destinationPoint": {
+              "reference": {
+                "referentClass": "org.opentcs.data.model.Point",
+                "name": "Point-0006"
+              },
+              "properties": {
+                "tcs:parkingPositionPriority": "2"
+              },
+              "name": "Point-0006",
+              "history": {
+                "entries": []
+              },
+              "pose": {
+                "position": {
+                  "x": 25000,
+                  "y": -3000,
+                  "z": 0
+                },
+                "orientationAngle": "NaN"
+              },
+              "type": "PARK_POSITION",
+              "incomingPaths": [
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0004 --- Point-0006"
+                },
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0005 --- Point-0006"
+                }
+              ],
+              "outgoingPaths": [
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0006 --- Point-0010"
+                },
+                {
+                  "referentClass": "org.opentcs.data.model.Path",
+                  "name": "Point-0006 --- Point-0009"
+                }
+              ],
+              "attachedLinks": [
+                {
+                  "location": {
+                    "referentClass": "org.opentcs.data.model.Location",
+                    "name": "Recharge 03"
+                  },
+                  "point": {
+                    "referentClass": "org.opentcs.data.model.Point",
+                    "name": "Point-0006"
+                  },
+                  "allowedOperations": []
+                }
+              ],
+              "occupyingVehicle": null,
+              "vehicleEnvelopes": {},
+              "maxVehicleBoundingBox": {
+                "length": 1000,
+                "width": 1000,
+                "height": 1000,
+                "referenceOffset": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "layout": {
+                "position": {
+                  "x": 25000,
+                  "y": -3000
+                },
+                "labelOffset": {
+                  "x": -10,
+                  "y": -20
+                },
+                "layerId": 0
+              },
+              "parkingPosition": true,
+              "haltingPosition": true
+            },
+            "vehicleOrientation": "FORWARD",
+            "routeIndex": 2,
+            "costs": 4423,
+            "executionAllowed": true,
+            "reroutingType": null
+          }
+        ],
+        "costs": 15681,
+        "finalDestinationPoint": {
+          "reference": {
+            "referentClass": "org.opentcs.data.model.Point",
+            "name": "Point-0006"
+          },
+          "properties": {
+            "tcs:parkingPositionPriority": "2"
+          },
+          "name": "Point-0006",
+          "history": {
+            "entries": []
+          },
+          "pose": {
+            "position": {
+              "x": 25000,
+              "y": -3000,
+              "z": 0
+            },
+            "orientationAngle": "NaN"
+          },
+          "type": "PARK_POSITION",
+          "incomingPaths": [
+            {
+              "referentClass": "org.opentcs.data.model.Path",
+              "name": "Point-0004 --- Point-0006"
+            },
+            {
+              "referentClass": "org.opentcs.data.model.Path",
+              "name": "Point-0005 --- Point-0006"
+            }
+          ],
+          "outgoingPaths": [
+            {
+              "referentClass": "org.opentcs.data.model.Path",
+              "name": "Point-0006 --- Point-0010"
+            },
+            {
+              "referentClass": "org.opentcs.data.model.Path",
+              "name": "Point-0006 --- Point-0009"
+            }
+          ],
+          "attachedLinks": [
+            {
+              "location": {
+                "referentClass": "org.opentcs.data.model.Location",
+                "name": "Recharge 03"
+              },
+              "point": {
+                "referentClass": "org.opentcs.data.model.Point",
+                "name": "Point-0006"
+              },
+              "allowedOperations": []
+            }
+          ],
+          "occupyingVehicle": null,
+          "vehicleEnvelopes": {},
+          "maxVehicleBoundingBox": {
+            "length": 1000,
+            "width": 1000,
+            "height": 1000,
+            "referenceOffset": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          "layout": {
+            "position": {
+              "x": 25000,
+              "y": -3000
+            },
+            "labelOffset": {
+              "x": -10,
+              "y": -20
+            },
+            "layerId": 0
+          },
+          "parkingPosition": true,
+          "haltingPosition": true
+        }
+      },
+      "state": "TRAVELLING"
+    },
+    "step": {
+      "path": {
+        "reference": {
+          "referentClass": "org.opentcs.data.model.Path",
+          "name": "Point-0001 --- Point-0003"
+        },
+        "properties": {},
+        "name": "Point-0001 --- Point-0003",
+        "history": {
+          "entries": []
+        },
+        "sourcePoint": {
+          "referentClass": "org.opentcs.data.model.Point",
+          "name": "Point-0001"
+        },
+        "destinationPoint": {
+          "referentClass": "org.opentcs.data.model.Point",
+          "name": "Point-0003"
+        },
+        "length": 5629,
+        "maxVelocity": 1000,
+        "maxReverseVelocity": 0,
+        "peripheralOperations": [],
+        "locked": false,
+        "vehicleEnvelopes": {},
+        "layout": {
+          "connectionType": "DIRECT",
+          "controlPoints": [],
+          "layerId": 0
+        },
+        "navigableForward": true,
+        "navigableReverse": false
+      },
+      "sourcePoint": {
+        "reference": {
+          "referentClass": "org.opentcs.data.model.Point",
+          "name": "Point-0001"
+        },
+        "properties": {},
+        "name": "Point-0001",
+        "history": {
+          "entries": []
+        },
+        "pose": {
+          "position": {
+            "x": 31000,
+            "y": 11000,
+            "z": 0
+          },
+          "orientationAngle": "NaN"
+        },
+        "type": "HALT_POSITION",
+        "incomingPaths": [
+          {
+            "referentClass": "org.opentcs.data.model.Path",
+            "name": "Point-0033 --- Point-0001"
+          }
+        ],
+        "outgoingPaths": [
+          {
+            "referentClass": "org.opentcs.data.model.Path",
+            "name": "Point-0001 --- Point-0002"
+          },
+          {
+            "referentClass": "org.opentcs.data.model.Path",
+            "name": "Point-0001 --- Point-0003"
+          }
+        ],
+        "attachedLinks": [],
+        "occupyingVehicle": {
+          "referentClass": "org.opentcs.data.model.Vehicle",
+          "name": "Vehicle-01"
+        },
+        "vehicleEnvelopes": {},
+        "maxVehicleBoundingBox": {
+          "length": 1000,
+          "width": 1000,
+          "height": 1000,
+          "referenceOffset": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "layout": {
+          "position": {
+            "x": 31000,
+            "y": 11000
+          },
+          "labelOffset": {
+            "x": -10,
+            "y": -20
+          },
+          "layerId": 0
+        },
+        "parkingPosition": false,
+        "haltingPosition": true
+      },
+      "destinationPoint": {
+        "reference": {
+          "referentClass": "org.opentcs.data.model.Point",
+          "name": "Point-0003"
+        },
+        "properties": {},
+        "name": "Point-0003",
+        "history": {
+          "entries": []
+        },
+        "pose": {
+          "position": {
+            "x": 31000,
+            "y": 5000,
+            "z": 0
+          },
+          "orientationAngle": "NaN"
+        },
+        "type": "HALT_POSITION",
+        "incomingPaths": [
+          {
+            "referentClass": "org.opentcs.data.model.Path",
+            "name": "Point-0001 --- Point-0003"
+          }
+        ],
+        "outgoingPaths": [
+          {
+            "referentClass": "org.opentcs.data.model.Path",
+            "name": "Point-0003 --- Point-0005"
+          },
+          {
+            "referentClass": "org.opentcs.data.model.Path",
+            "name": "Point-0003 --- Point-0004"
+          }
+        ],
+        "attachedLinks": [],
+        "occupyingVehicle": null,
+        "vehicleEnvelopes": {},
+        "maxVehicleBoundingBox": {
+          "length": 1000,
+          "width": 1000,
+          "height": 1000,
+          "referenceOffset": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "layout": {
+          "position": {
+            "x": 31000,
+            "y": 5000
+          },
+          "labelOffset": {
+            "x": -10,
+            "y": -20
+          },
+          "layerId": 0
+        },
+        "parkingPosition": false,
+        "haltingPosition": true
+      },
+      "vehicleOrientation": "FORWARD",
+      "routeIndex": 0,
+      "costs": 5629,
+      "executionAllowed": true,
+      "reroutingType": null
+    },
+    "operation": "NOP",
+    "opLocation": null,
+    "finalMovement": false,
+    "finalDestination": {
+      "reference": {
+        "referentClass": "org.opentcs.data.model.Point",
+        "name": "Point-0006"
+      },
+      "properties": {
+        "tcs:parkingPositionPriority": "2"
+      },
+      "name": "Point-0006",
+      "history": {
+        "entries": []
+      },
+      "pose": {
+        "position": {
+          "x": 25000,
+          "y": -3000,
+          "z": 0
+        },
+        "orientationAngle": "NaN"
+      },
+      "type": "PARK_POSITION",
+      "incomingPaths": [
+        {
+          "referentClass": "org.opentcs.data.model.Path",
+          "name": "Point-0004 --- Point-0006"
+        },
+        {
+          "referentClass": "org.opentcs.data.model.Path",
+          "name": "Point-0005 --- Point-0006"
+        }
+      ],
+      "outgoingPaths": [
+        {
+          "referentClass": "org.opentcs.data.model.Path",
+          "name": "Point-0006 --- Point-0010"
+        },
+        {
+          "referentClass": "org.opentcs.data.model.Path",
+          "name": "Point-0006 --- Point-0009"
+        }
+      ],
+      "attachedLinks": [
+        {
+          "location": {
+            "referentClass": "org.opentcs.data.model.Location",
+            "name": "Recharge 03"
+          },
+          "point": {
+            "referentClass": "org.opentcs.data.model.Point",
+            "name": "Point-0006"
+          },
+          "allowedOperations": []
+        }
+      ],
+      "occupyingVehicle": null,
+      "vehicleEnvelopes": {},
+      "maxVehicleBoundingBox": {
+        "length": 1000,
+        "width": 1000,
+        "height": 1000,
+        "referenceOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "layout": {
+        "position": {
+          "x": 25000,
+          "y": -3000
+        },
+        "labelOffset": {
+          "x": -10,
+          "y": -20
+        },
+        "layerId": 0
+      },
+      "parkingPosition": true,
+      "haltingPosition": true
+    },
+    "finalDestinationLocation": null,
+    "finalOperation": "MOVE",
+    "properties": {}
+  }
+}

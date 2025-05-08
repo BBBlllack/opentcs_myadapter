@@ -5,7 +5,9 @@ import static org.opentcs.constants.AdapterSocketConstants.*;
 import static org.opentcs.MyCommAdapterMessages.*;
 import static org.opentcs.constants.VehicleSocketConstants.*;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.inject.assistedinject.Assisted;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -38,6 +40,9 @@ import org.opentcs.encr.ProxyReaderWriterDESEncrypt;
 import org.opentcs.encr.ProxyReaderWriterNonEncrypt;
 import org.opentcs.encr.ProxyReaderWriterRSAEncrypt;
 import org.opentcs.encr.ProxyReaderWriterSM4Encrypt;
+import org.opentcs.entity.ReceiveEntity;
+import org.opentcs.entity.SendEntity;
+import org.opentcs.entity.VehicleOperation;
 import org.opentcs.util.ExplainedBoolean;
 import org.opentcs.util.MapValueExtractor;
 import org.slf4j.Logger;
@@ -67,8 +72,12 @@ public class MyCommAdapter
   private final static int VEHICLE_SOCKET_PORT = 30000;
   private static volatile boolean isAdapterSocketStarted = false;
   private static volatile boolean isVehicleSocketStarted = false;
-  private final static ObjectMapper objectMapper = new ObjectMapper();
+  private final static ObjectMapper objectMapper;
   private static final int SIMULATION_PERIOD = 100;
+
+  static {
+    objectMapper = new ObjectMapper().copy().registerModule(new JavaTimeModule());
+  }
 
   /**
    * Creates a new instance.
@@ -169,7 +178,9 @@ public class MyCommAdapter
                   = ProxyReaderWriterDESEncrypt.createDecryptedReader(reader);
               MyWriter decryptedWriter = ProxyReaderWriterDESEncrypt.createEncryptedWriter(writer);
               // 协商加密方式, 车辆通告服务器自己名称
-              String interactData = reader.readLine();
+              ReceiveEntity receiveEntity = objectMapper.readValue(
+                  reader.readLine(), ReceiveEntity.class);
+              String interactData = receiveEntity.getInstructionFeedBack();
               // 获取协商后的加密方式
               String encryptMethod = interactData.substring(0, 3);
               // 获取车辆名称
@@ -212,24 +223,65 @@ public class MyCommAdapter
   public void handleNone(MyCommAdapter adapter, BufferedReader reader, PrintWriter writer) {
     adapter.setSocketReader(ProxyReaderWriterNonEncrypt.createDecryptedReader(reader));
     adapter.setSocketWriter(ProxyReaderWriterNonEncrypt.createEncryptedWriter(writer));
-    adapter.getSocketWriter().println("NON");
+    SendEntity sendEntity = SendEntity.builder()
+        .operation(VehicleOperation.HANDSHAKE)
+        .message("NON")
+        .timestamp(System.currentTimeMillis())
+        .build();
+    try {
+      adapter.getSocketWriter().println(objectMapper.writeValueAsString(sendEntity));
+    }
+    catch (JsonProcessingException e) {
+      throw new RuntimeException(e);
+    }
   }
 
   public void handleDES(MyCommAdapter adapter, BufferedReader reader, PrintWriter writer) {
     adapter.setSocketReader(ProxyReaderWriterDESEncrypt.createDecryptedReader(reader));
     adapter.setSocketWriter(ProxyReaderWriterDESEncrypt.createEncryptedWriter(writer));
-    adapter.getSocketWriter().println("DES");
+    SendEntity sendEntity = SendEntity.builder()
+        .operation(VehicleOperation.HANDSHAKE)
+        .message("DES")
+        .timestamp(System.currentTimeMillis())
+        .build();
+    try {
+      adapter.getSocketWriter().println(objectMapper.writeValueAsString(sendEntity));
+    }
+    catch (JsonProcessingException e) {
+      throw new RuntimeException(e);
+    }
   }
 
   public void handleRSA(MyCommAdapter adapter, BufferedReader reader, PrintWriter writer) {
     adapter.setSocketReader(ProxyReaderWriterRSAEncrypt.createDecryptedReader(reader, null));
     adapter.setSocketWriter(ProxyReaderWriterRSAEncrypt.createEncryptedWriter(writer, null));
+    SendEntity sendEntity = SendEntity.builder()
+        .operation(VehicleOperation.HANDSHAKE)
+        .message("RSA")
+        .timestamp(System.currentTimeMillis())
+        .build();
+    try {
+      adapter.getSocketWriter().println(objectMapper.writeValueAsString(sendEntity));
+    }
+    catch (JsonProcessingException e) {
+      throw new RuntimeException(e);
+    }
   }
 
-  public void handleSM4(MyCommAdapter adapter, BufferedReader reader, PrintWriter writer){
+  public void handleSM4(MyCommAdapter adapter, BufferedReader reader, PrintWriter writer) {
     adapter.setSocketReader(ProxyReaderWriterSM4Encrypt.createDecryptedReader(reader));
     adapter.setSocketWriter(ProxyReaderWriterSM4Encrypt.createEncryptedWriter(writer));
-    adapter.getSocketWriter().println("SM4");
+    SendEntity sendEntity = SendEntity.builder()
+        .operation(VehicleOperation.HANDSHAKE)
+        .message("SM4")
+        .timestamp(System.currentTimeMillis())
+        .build();
+    try {
+      adapter.getSocketWriter().println(objectMapper.writeValueAsString(sendEntity));
+    }
+    catch (JsonProcessingException e) {
+      throw new RuntimeException(e);
+    }
   }
 
   @Override
@@ -339,11 +391,13 @@ public class MyCommAdapter
     if (isVehicleConnected()) {
       PrintWriter writer;
       try {
-//      writer = new PrintWriter(vehicleSocketMap.get(vehicle.getName()).getOutputStream(), true);
-        writer = new PrintWriter(getVehicleSocketClient().getOutputStream(), true);
-        MyWriter encryptedWriter
-            = ProxyReaderWriterDESEncrypt.createEncryptedWriter(writer);
-        getSocketWriter().println(command);
+        SendEntity sendEntity = SendEntity.builder()
+            .operation(VehicleOperation.MOV)
+            .instruction(command.asJsonMap())
+            .timestamp(System.currentTimeMillis())
+            .build();
+        LOGGER.info(objectMapper.writeValueAsString(sendEntity));
+        getSocketWriter().println(objectMapper.writeValueAsString(sendEntity));
         LOGGER.info("MovementCommand {} was sent: ", command);
       }
       catch (Exception e) {
@@ -407,14 +461,13 @@ public class MyCommAdapter
     if (isVehicleConnected()) {
       myExecutor.submit(() -> {
         try {
-          BufferedReader reader = new BufferedReader(
-              new InputStreamReader(getVehicleSocketClient().getInputStream()));
-          MyReader decryptedReader
-              = ProxyReaderWriterDESEncrypt.createDecryptedReader(reader);
           String message;
+          ReceiveEntity receiveEntity;
           while ((message = getSocketReader().readLine()) != null) {
-            LOGGER.info("recv from {} client: {}", vehicle.getName(), message);
-            if ("done".equals(message)) {
+            receiveEntity = objectMapper.readValue(message, ReceiveEntity.class);
+            String feedback = receiveEntity.getInstructionFeedBack();
+            LOGGER.info("recv from {} client: {}", vehicle.getName(), receiveEntity);
+            if ("done".equals(feedback)) {
               finishedCurrentAndStartNextCommand(command);
               break;
             }
@@ -449,18 +502,19 @@ public class MyCommAdapter
       if (isVehicleConnected()) {
         myExecutor.submit(() -> {
           try {
-            BufferedReader reader = new BufferedReader(
-                new InputStreamReader(getVehicleSocketClient().getInputStream()));
-            MyReader decryptedReader
-                = ProxyReaderWriterDESEncrypt.createDecryptedReader(reader);
             String message;
             while ((message = getSocketReader().readLine()) != null) {
-              LOGGER.info("recv from {} client: {}", vehicle.getName(), message);
-              if ("done".equalsIgnoreCase(message)) {
+              ReceiveEntity receiveEntity = objectMapper.readValue(message, ReceiveEntity.class);
+              LOGGER.info("recv from {} client: {}", vehicle.getName(), receiveEntity);
+              String feedback = receiveEntity.getInstructionFeedBack();
+              if ("done".equalsIgnoreCase(feedback)) {
                 finishedCurrentAndStartNextCommand(command);
                 break;
               }
-              if ("disconnect".equalsIgnoreCase(message)) {
+              if ("failed".equalsIgnoreCase(feedback)) {
+
+              }
+              if ("disconnect".equalsIgnoreCase(feedback)) {
                 getProcessModel().setState(Vehicle.State.IDLE);
                 getVehicleSocketClient().close();
                 this.disconnectVehicle();

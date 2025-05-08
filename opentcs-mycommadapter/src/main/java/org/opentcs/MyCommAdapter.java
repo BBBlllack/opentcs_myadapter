@@ -37,6 +37,7 @@ import org.opentcs.drivers.vehicle.VehicleProcessModel;
 import org.opentcs.encr.ProxyReaderWriterDESEncrypt;
 import org.opentcs.encr.ProxyReaderWriterNonEncrypt;
 import org.opentcs.encr.ProxyReaderWriterRSAEncrypt;
+import org.opentcs.encr.ProxyReaderWriterSM4Encrypt;
 import org.opentcs.util.ExplainedBoolean;
 import org.opentcs.util.MapValueExtractor;
 import org.slf4j.Logger;
@@ -182,6 +183,7 @@ public class MyCommAdapter
                   case ENCRYPT_METHOD_NONE -> handleNone(vehicleAdapter, reader, writer);
                   case ENCRYPT_METHOD_DES -> handleDES(vehicleAdapter, reader, writer);
                   case ENCRYPT_METHOD_RSA -> handleRSA(vehicleAdapter, reader, writer);
+                  case ENCRYPT_METHOD_SM4 -> handleSM4(vehicleAdapter, reader, writer);
                   default -> {
                   }
                 }
@@ -222,6 +224,12 @@ public class MyCommAdapter
   public void handleRSA(MyCommAdapter adapter, BufferedReader reader, PrintWriter writer) {
     adapter.setSocketReader(ProxyReaderWriterRSAEncrypt.createDecryptedReader(reader, null));
     adapter.setSocketWriter(ProxyReaderWriterRSAEncrypt.createEncryptedWriter(writer, null));
+  }
+
+  public void handleSM4(MyCommAdapter adapter, BufferedReader reader, PrintWriter writer){
+    adapter.setSocketReader(ProxyReaderWriterSM4Encrypt.createDecryptedReader(reader));
+    adapter.setSocketWriter(ProxyReaderWriterSM4Encrypt.createEncryptedWriter(writer));
+    adapter.getSocketWriter().println("SM4");
   }
 
   @Override

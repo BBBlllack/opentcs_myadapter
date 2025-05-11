@@ -9,6 +9,14 @@ import org.opentcs.utils.RSAUtil;
 
 public class ProxyReaderWriterNonEncrypt {
 
+  public static String encrypt(String plainText) {
+    return plainText;
+  }
+
+  public static String decrypt(String cipherText) {
+    return cipherText;
+  }
+
   // 代理Writer
   public static MyWriter createEncryptedWriter(PrintWriter writer) {
     return (MyWriter) Proxy.newProxyInstance(
@@ -17,7 +25,7 @@ public class ProxyReaderWriterNonEncrypt {
         (proxy, method, args) -> {
           if ("println".equals(method.getName()) && args.length == 1 && args[0] != null) {
             String encrypted = String.valueOf(args[0]);
-            writer.println(encrypted);
+            writer.println(encrypt(encrypted));
             writer.flush(); // 确保写入
             return null;
           }
@@ -33,7 +41,7 @@ public class ProxyReaderWriterNonEncrypt {
         new Class<?>[]{MyReader.class},
         (proxy, method, args) -> {
           if ("readLine".equals(method.getName())) {
-            return reader.readLine();
+            return decrypt(reader.readLine());
           }
           return method.invoke(reader, args);
         }

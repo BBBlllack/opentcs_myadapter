@@ -22,6 +22,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -36,6 +38,7 @@ import org.opentcs.drivers.vehicle.LoadHandlingDevice;
 import org.opentcs.drivers.vehicle.MovementCommand;
 import org.opentcs.drivers.vehicle.VehicleCommAdapterMessage;
 import org.opentcs.drivers.vehicle.VehicleProcessModel;
+import org.opentcs.encr.ProxyReaderWriterAESEncrypt;
 import org.opentcs.encr.ProxyReaderWriterDESEncrypt;
 import org.opentcs.encr.ProxyReaderWriterNonEncrypt;
 import org.opentcs.encr.ProxyReaderWriterRSAEncrypt;
@@ -57,9 +60,9 @@ public class MyCommAdapter
   private final static ScheduledExecutorService myExecutor = Executors.newScheduledThreadPool(5);
   private final static Logger LOGGER = LoggerFactory.getLogger(MyCommAdapter.class);
   public static final String LHD_NAME = "mydefault";
-  private final static Map<String, VehicleProcessModel> processModelMap = new HashMap<>();
-  private final static Map<String, MyCommAdapter> myCommAdapterMap = new HashMap<>();
-  private final static Map<String, Socket> vehicleSocketMap = new HashMap<>();
+  private final static Map<String, VehicleProcessModel> processModelMap = new ConcurrentHashMap<>();
+  private final static Map<String, MyCommAdapter> myCommAdapterMap = new ConcurrentHashMap<>();
+  private final static Map<String, Socket> vehicleSocketMap = new ConcurrentHashMap<>();
   private Socket vehicleSocketClient;
   private MyReader socketReader;
   private MyWriter socketWriter;
@@ -188,6 +191,21 @@ public class MyCommAdapter
               LOGGER.info("encryptMethod: {}, Vehicle Name: {}", encryptMethod, vehicleName);
               MyCommAdapter vehicleAdapter = myCommAdapterMap.get(vehicleName);
               if (vehicleAdapter != null) {
+                // 释放上一次的资源
+                Optional.ofNullable(vehicleSocketMap.getOrDefault(vehicleName, null))
+                        .ifPresent(e -> {
+                          try {
+                            e.close();
+                          }
+                          catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                          }
+                        });
+                // 充值车辆状态为IDLE
+                Optional.ofNullable(myCommAdapterMap.getOrDefault(vehicleName, null))
+                    .ifPresent(e->{
+                      e.getProcessModel().setState(Vehicle.State.IDLE);
+                    });
                 vehicleSocketMap.put(vehicleName, client);
 //                根据协商的加密方式做对应处理
                 switch (encryptMethod) {
@@ -195,6 +213,7 @@ public class MyCommAdapter
                   case ENCRYPT_METHOD_DES -> handleDES(vehicleAdapter, reader, writer);
                   case ENCRYPT_METHOD_RSA -> handleRSA(vehicleAdapter, reader, writer);
                   case ENCRYPT_METHOD_SM4 -> handleSM4(vehicleAdapter, reader, writer);
+                  case ENCRYPT_METHOD_AES -> handleAES(vehicleAdapter, reader, writer);
                   default -> {
                   }
                 }
@@ -274,6 +293,22 @@ public class MyCommAdapter
     SendEntity sendEntity = SendEntity.builder()
         .operation(VehicleOperation.HANDSHAKE)
         .message("SM4")
+        .timestamp(System.currentTimeMillis())
+        .build();
+    try {
+      adapter.getSocketWriter().println(objectMapper.writeValueAsString(sendEntity));
+    }
+    catch (JsonProcessingException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  public void handleAES(MyCommAdapter adapter, BufferedReader reader, PrintWriter writer) {
+    adapter.setSocketReader(ProxyReaderWriterAESEncrypt.createDecryptedReader(reader));
+    adapter.setSocketWriter(ProxyReaderWriterAESEncrypt.createEncryptedWriter(writer));
+    SendEntity sendEntity = SendEntity.builder()
+        .operation(VehicleOperation.HANDSHAKE)
+        .message("AES")
         .timestamp(System.currentTimeMillis())
         .build();
     try {

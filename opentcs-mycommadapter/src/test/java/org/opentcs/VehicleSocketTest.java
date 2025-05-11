@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Optional;
 import java.util.Scanner;
 import org.junit.jupiter.api.Test;
 import org.opentcs.encr.MyReader;
@@ -87,5 +88,16 @@ public class VehicleSocketTest {
     String s = "hello";
     System.out.println(s.substring(0,3));
     System.out.println(s.substring(3,s.length()));
+  }
+
+  @Test
+  void test06() {
+    String s = "null";
+//    Optional.of(s).ifPresent(System.out::println);
+    Optional.ofNullable(s).ifPresent(System.out::println);
+    Optional.ofNullable(s).ifPresentOrElse(System.out::println, () -> {
+          System.out.println("null...");
+    }
+    );
   }
 }

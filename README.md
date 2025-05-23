@@ -5,47 +5,61 @@
 
 > opentcs-mycommadapter 为主要工作
 
-> 配合仓库[opentcs_python_client](https://github.com/BBBlllack/opentcs_python_client)使用
+> 配合仓库[opentcs_python_client](https://github.com/BBBlllack/opentcs_python_client)使用(模拟器)
 
-= openTCS
+> 配合仓库[opentcs_s400_ros](https://github.com/BBBlllack/opentcs_s400_ros)使用(接入车辆)
 
-image:https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg[Contributor Covenant,link=CODE_OF_CONDUCT.md]
+# openTCS
 
-* Homepage: https://www.opentcs.org/
-* Changelog: link:./opentcs-documentation/src/docs/release-notes/changelog.adoc[changelog.adoc]
+![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)
 
-openTCS (short for _open Transportation Control System_) is a free platform for controlling fleets of https://en.wikipedia.org/wiki/Automated_guided_vehicle[automated guided vehicles (AGVs)] and mobile robots.
+- **Homepage**: [https://www.opentcs.org/](https://www.opentcs.org/)
+- **Changelog**: [changelog.adoc](./opentcs-documentation/src/docs/release-notes/changelog.adoc)
+
+---
+
+**openTCS** (short for *open Transportation Control System*) is a free platform for controlling fleets of [automated guided vehicles (AGVs)](https://en.wikipedia.org/wiki/Automated_guided_vehicle) and mobile robots.
 It should generally be possible to control any automatic vehicle with communication capabilities with it, but AGVs are the main target.
 
-openTCS is being maintained by the openTCS team at the https://www.iml.fraunhofer.de/[Fraunhofer Institute for Material Flow and Logistics].
+openTCS is maintained by the openTCS team at the [Fraunhofer Institute for Material Flow and Logistics](https://www.iml.fraunhofer.de/).
 
-The software runs on the Java platform version 21, with the recommended Java distribution being the one provided by the https://adoptium.net/[Adoptium project].
+The software runs on **Java 21**, with the recommended Java distribution being the one provided by the [Adoptium project](https://adoptium.net/).
 All libraries required for compiling and/or using it are freely available, too.
 
-openTCS itself is not a complete product you can use out-of-the-box to control AGVs with.
-Primarily, it is a framework/an implementation of the basic data structures and algorithms (routing, dispatching, scheduling) needed for running an AGV system with more than one vehicle.
-It tries to be as generic as possible to allow interoperation with vehicles of practically any vendor.
-Thus it is usually necessary to at least create and integrate a vehicle driver (called _communication adapter_ in openTCS-speak) that translates between the abstract interface of the openTCS kernel and the communication protocol your vehicle understands.
-Depending on your needs, it might also be necessary to adapt algorithms or add project-specific strategies.
+> ⚠️ openTCS itself is **not a complete product** you can use out-of-the-box to control AGVs with.
+> It is a **framework** that provides basic data structures and algorithms (routing, dispatching, scheduling) needed for running an AGV system with multiple vehicles.
 
-== Getting started
+To use openTCS with real vehicles, you typically need to:
+- Implement or integrate a **vehicle driver** (called *communication adapter* in openTCS terms) that translates between openTCS's abstract interface and your vehicle's protocol.
+- Optionally, adapt algorithms or add project-specific strategies.
 
-To get started with openTCS, please refer to the user's guide, the developer's guide and the API documentation.
-These documents are included in the binary distribution and can also be read online on the https://www.opentcs.org/[openTCS homepage].
+---
 
-== Licensing
+## Getting started
 
-This work is licensed under multiple licences.
-Because keeping this section up-to-date is challenging, here is a brief summary as of November 2024:
+To get started with openTCS, please refer to the following:
+- User's guide
+- Developer's guide
+- API documentation
 
-* All original source code is licensed under link:./LICENSES/MIT.txt[MIT].
-* All original assets, including documentation, is licensed under link:./LICENSES/CC-BY-4.0.txt[CC-BY-4.0].
-* Some configuration and data files are licensed under link:./LICENSES/CC0-1.0.txt[CC0-1.0].
-* Some third-party assets are licensed under link:./LICENSES/Apache-2.0.txt[Apache-2.0] or link:./LICENSES/OFL-1.1.txt[OFL-1.1].
+These documents are included in the binary distribution and also available online on the [openTCS homepage](https://www.opentcs.org/).
 
-For more accurate information, check the individual files as well as the `REUSE.toml` files.
+---
 
-== Contributing
+## Licensing
 
-You are very welcome to contribute to this project.
-Please see link:./CONTRIBUTING.adoc[CONTRIBUTING.adoc] for a few guidelines related to this.
+openTCS is licensed under multiple licenses. Here's a brief summary (as of **November 2024**):
+
+- All original source code: [MIT License](./LICENSES/MIT.txt)
+- All original assets (including documentation): [CC-BY-4.0](./LICENSES/CC-BY-4.0.txt)
+- Some configuration/data files: [CC0-1.0](./LICENSES/CC0-1.0.txt)
+- Some third-party assets: [Apache-2.0](./LICENSES/Apache-2.0.txt), [OFL-1.1](./LICENSES/OFL-1.1.txt)
+
+👉 For accurate license information, check individual files and the `REUSE.toml` file.
+
+---
+
+## Contributing
+
+We welcome contributions!
+Please see [CONTRIBUTING.adoc](./CONTRIBUTING.adoc) for contribution guidelines.

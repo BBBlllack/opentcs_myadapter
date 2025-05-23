@@ -13,8 +13,11 @@ import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import jakarta.inject.Inject;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -405,11 +408,27 @@ public class MyCommAdapter
     LOGGER.info("onVehiclePaused: {}", paused);
   }
 
+  public static String STEP_PATH = "C:\\Users\\13273\\IdeaProjects\\opentcs\\opentcs-mycommadapter\\steps";
+  public volatile static int count = 1;
   // TODO sendCommand
   @Override
   public synchronized void sendCommand(MovementCommand cmd)
       throws IllegalArgumentException {
     requireNonNull(cmd, "cmd");
+//    File file = new File(String.format("%s\\%s.json", STEP_PATH, "STEP-" + count++));
+//    OutputStreamWriter writer = null;
+//    if (!file.exists()) {
+//      try {
+//        file.createNewFile();
+//        writer = new OutputStreamWriter(new FileOutputStream(file));
+//        writer.write(objectMapper.writeValueAsString(cmd) + "\r\n");
+//        writer.flush();
+//        writer.close();
+//      }
+//      catch (IOException e) {
+//        LOGGER.error("指令序列化失败: {}", e.getMessage());
+//      }
+//    }
     VehicleProcessModel model = getProcessModel();
     LOGGER.info("{} MovementCommand: {}", model.getName(), cmd.toString());
     if (getSentCommands().isEmpty()) {

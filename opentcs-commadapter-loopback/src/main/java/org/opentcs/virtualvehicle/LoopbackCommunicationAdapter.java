@@ -39,6 +39,10 @@ import com.google.inject.assistedinject.Assisted;
 import jakarta.annotation.Nonnull;
 import jakarta.inject.Inject;
 import java.beans.PropertyChangeEvent;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -408,8 +412,10 @@ public class LoopbackCommunicationAdapter
     }
   }
 
+
   private void startVehicleSimulation(MovementCommand command) {
     LOG.debug("Starting vehicle simulation for command: {}", command);
+
     Step step = command.getStep();
     getProcessModel().setState(Vehicle.State.EXECUTING);
 

@@ -536,8 +536,15 @@ public class MovementCommand {
    * @return
    */
   public Map<String, String> asJsonMap(){
+    HashMap<String, String> stepMap = new HashMap<>();
+    stepMap.put("step", getStep().toString());
+    stepMap.put("spx", String.valueOf(getStep().getSourcePoint().getPose().getPosition().getX()));
+    stepMap.put("spy", String.valueOf(getStep().getSourcePoint().getPose().getPosition().getY()));
+    stepMap.put("dpx", String.valueOf(getStep().getDestinationPoint().getPose().getPosition().getX()));
+    stepMap.put("dpy", String.valueOf(getStep().getDestinationPoint().getPose().getPosition().getY()));
+
     HashMap<String, String> jsonMap = new HashMap<>();
-    jsonMap.put("step", String.valueOf(getStep()));
+    jsonMap.put("step", String.valueOf(stepMap));
     jsonMap.put("operation", String.valueOf(getOperation()));
     jsonMap.put("opLocation", String.valueOf(getOpLocation()));
     jsonMap.put("finalMovement", String.valueOf(isFinalMovement()));
